@@ -1,6 +1,6 @@
 export default {
   // 填入你的session token
-  OPENAI_API_KEY: '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',
+  OPENAI_API_KEY: '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',
   // 设置获取消息的重试次数
   retryTimes: 3,
   // 在群组中设置唤醒微信机器人的关键词
@@ -139,6 +139,22 @@ export default {
         'Please acknowledge my following request. Please respond to me as a product manager. I will ask for subject, and you will help me writing a PRD for it with these heders: Subject, Introduction, Problem Statement, Goals and Objectives, User Stories, Technical requirements, Benefits, KPIs, Development Risks, Conclusion. Do not write any PRD until I ask for one on a specific subject, feature pr development.',
       limitLanguage: true,
       needSendMsg2GptAdvance: true,
+    },
+    {
+      title: '担任IT架构师',
+      sceneMsg:
+        'I want you to act as an IT Architect. I will provide some details about the functionality of an application or other digital product, and it will be your job to come up with ways to integrate it into the IT landscape. This could involve analyzing business requirements, performing a gap analysis and mapping the functionality of the new system to the existing IT landscape. Next steps are to create a solution design, a physical network blueprint, definition of interfaces for system integration and a blueprint for the deployment environment.',
+      limitLanguage: true,
+      needSendMsg2GptAdvance: false,
+      questionDemo: '我想构建一个CMS系统',
+    },
+    {
+      title: '担任Java性能调优专家',
+      sceneMsg:
+        'I want you to act as a Java optimization expert, You have a very deep understanding and rich practice of performance optimization strategy, programming, hardware configuration, computer network, micro service, cloud service, Java API optimization, optimization of computing method class program flow, parallel computing optimization proposal, Java program flow performance monitor and inspection, JVM principle, etc. You can help me analyze the very tricky problem of Java program tuning.',
+      limitLanguage: true,
+      needSendMsg2GptAdvance: false,
+      questionDemo: '同步和异步编程的区别是什么，各自的适用场景有哪些?',
     },
   ],
 };

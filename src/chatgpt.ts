@@ -52,7 +52,7 @@ function reset() {
 
 function getCosPlaySceneTitleListMenu() {
   if (config.cosplay && config.cosplay.length > 0) {
-    const arr = [];
+    const arr = [] as any[];
     for (const i in config.cosplay) {
       const segment = config.cosplay[i];
       const index = parseInt(i) + 1;

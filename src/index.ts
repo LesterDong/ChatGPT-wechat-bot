@@ -1,13 +1,12 @@
-import { WechatyBuilder } from 'wechaty';
+import { WechatyBuilder, Message } from 'wechaty';
 import qrcodeTerminal from 'qrcode-terminal';
 import config from './config.js';
 import { replyMessage, initChatGPT } from './chatgpt.js';
 
 let bot: any = {};
 initProjest();
-async function onMessage(msg) {
+async function onMessage(msg: Message): Promise<void> {
   const contact = msg.talker();
-  const receiver = msg.to();
   const content = msg.text().trim();
   const room = msg.room();
   const alias = (await contact.alias()) || (await contact.name());
@@ -21,9 +20,9 @@ async function onMessage(msg) {
     console.log(
       `Group name: ${topic} talker: ${await contact.name()} content: ${content}`
     );
-
-    const pattern = RegExp(`^@${receiver.name()}\\s+${config.groupKey}[\\s]*`);
     if (await msg.mentionSelf()) {
+      //
+      const pattern = RegExp(`^@\\S+[\\s]*${config.groupKey}[\\s]*`);
       if (pattern.test(content)) {
         const groupContent = content.replace(pattern, '');
         replyMessage(room, groupContent);
